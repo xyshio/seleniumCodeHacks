@@ -1,0 +1,15 @@
+    /**
+     * Call JQuery With Reload
+     *
+     * @param idElement         - string element id
+     * @param jqueryOpsProvided - string jquery operation
+     * @call - SeleniumUtilsHGS.callJQueryWithReload("div[aria-describedby*=\"bankAccountContainerFloatingDivDiv\"]", "css(\"top\", 1)");
+     * @call - SeleniumUtilsHGS.callJQueryWithReload("#idOfElement", "val('newValue')");
+     * @call - SeleniumUtilsHGS.callJQueryWithReload(".classOfElement", "append('new appended value')");
+     * @call - SeleniumUtilsHGS.callJQueryWithReload("input[name=\"+datePicker+\"]", "val('\"+newDate+\"').change()");
+     */
+    public static void callJQueryWithReload(final String idElement, final String jqueryOpsProvided) {
+        final String jqueryCommand = "$('" + idElement + "')." + jqueryOpsProvided;
+        coreTools.callJS(jqueryCommand);
+        //getSelenium().waitForPageToLoad(); // optional when reloading was executed..
+    }
